@@ -15,14 +15,14 @@ namespace MeuPrimeiroProjetoWeb.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Página de descrição da aplicação";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Página de contato"; // precisa ter o mesmo nome ViewBag.Message aqui e na view.
 
             return View();
         }
