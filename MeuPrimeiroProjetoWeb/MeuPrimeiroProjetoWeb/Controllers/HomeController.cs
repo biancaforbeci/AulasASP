@@ -26,5 +26,13 @@ namespace MeuPrimeiroProjetoWeb.Controllers
 
             return View();
         }
+
+        public ActionResult Testando()
+        {
+            ViewBag.Message = "Página de teste";
+
+            return View();
+        }
+
     }
 }
