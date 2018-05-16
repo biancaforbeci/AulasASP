@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Aula1505.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 
 namespace Aula1505.Controllers
@@ -10,12 +12,18 @@ namespace Aula1505.Controllers
         // GET: Categorias
         public ActionResult Index()
         {
-            List<string> categorias = new List<string>();
+            List<Categoria> categorias = new List<Categoria>();
 
-            categorias.Add("Estudo");
-            categorias.Add("Lazer");
-            categorias.Add("Refeição");
-            categorias.Add("Trabalho");
+            categorias.Add(
+                new Categoria
+                {
+                    Nome = "Casa"
+                }
+                );
+
+            categorias.Add(new Categoria() { Nome = "Trabalho" });
+            categorias.Add(new Categoria() { Nome = "Família" });
+            categorias.Add(new Categoria() { Nome = "Carro" });
 
             ViewBag.MinhasCategorias = categorias;
 
