@@ -1,0 +1,15 @@
+﻿@using Aula1505.Models
+@model IEnumerable<Categoria>
+@{
+    ViewBag.Title = "Index2";
+}
+
+<h2>Index2</h2>
+
+@foreach (Categoria c in Model)
+{
+    <p>@Html.DisplayNameFor(m=> m.Nome)  @Html.DisplayFor(a => c.Nome)</p>
+    <p>@Html.DisplayNameFor(m => m.Ativo) @Html.DisplayFor(b => c.Nome)</p> 
+
+}
+
