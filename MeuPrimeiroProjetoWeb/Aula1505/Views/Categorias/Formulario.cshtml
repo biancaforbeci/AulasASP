@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Formulario";
+}
+
+<h2>Formulario</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.TextBox("Nome")                  //textArea - campo para escrever mais coisas.
+    <br />
+    <br />
+    @Html.TextBox("Descricao")
+    <br />
+    <br />
+    @Html.CheckBox("Ativo")
+    <br />
+    <br />
+    @Html.TextArea("Texto comprido")
+    <br />
+    <br />
+    <input type="submit" value="Enviar" />
+}
+
