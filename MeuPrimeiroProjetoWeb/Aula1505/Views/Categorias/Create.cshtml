@@ -20,6 +20,7 @@
     // Formulario versao 2
     @Html.DisplayNameFor(m => m.Nome)  //cria label do campo
     @Html.EditorFor(x => x.Nome)
+    @Html.ValidationMessageFor(m=>m.Nome)
     <br />
     <br />
     @Html.DisplayNameFor(m => m.Ativo)
@@ -33,4 +34,9 @@
         <input type="submit" value="Salvar" />
     *@
 }
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")  //chamando javascript
+    
+    }
 
