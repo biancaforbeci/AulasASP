@@ -59,7 +59,68 @@ namespace Aula2205_Entity.Controllers
             return View(user);
         }
 
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);  //retorna erro http diferente, requisição mau feita.
+            }
 
+            MeuContexto contexto = new MeuContexto();
+            Usuario user = contexto.Usuarios.Find(id);
+
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+
+
+            return View(user);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Usuario usu)
+        {
+            if (ModelState.IsValid)
+            {
+                MeuContexto contexto = new MeuContexto();
+                contexto.Entry(usu).State = System.Data.Entity.EntityState.Modified;
+                contexto.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(usu);
+        }
+
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);  //retorna erro http diferente, requisição mau feita.
+            }
+
+            MeuContexto contexto = new MeuContexto();
+            Usuario user = contexto.Usuarios.Find(id);
+
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+
+
+            return View(user);
+        }
+
+        [HttpPost,ActionName("Delete")] //esse método é chamado quando chama o delete do Post
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            MeuContexto contexto = new MeuContexto();
+            Usuario usu=contexto.Usuarios.Find(id);
+            contexto.Usuarios.Remove(usu);
+            contexto.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
     }
 }
